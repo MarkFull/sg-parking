@@ -204,7 +204,7 @@
             }
         }
         map.on('click', function (e) {
-            const features = map.queryRenderedFeatures(e.point, { layers: ['points'], radius: 10, includeGeometry: true });
+            const features = map.queryRenderedFeatures(e.point, { layers: ['points', "free-points"], radius: 10, includeGeometry: true });
             console.log(e.point, features);
             if (features.length) {
                 document.getElementById("brief-title").innerText = features[0].properties.car_park_no ||
