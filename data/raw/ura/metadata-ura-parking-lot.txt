@@ -1,0 +1,38 @@
+# Metadata for URA Parking Lot
+---
+Identifier: 'bcd27325-b84c-45be-b13e-4d55e89f6cf7'
+Name: 'ura-parking-lot'
+Title: 'URA Parking Lot'
+Description: 'Indicative location of the various types of parking lots managed by
+  URA.'
+Topics:
+  - 'Transport'
+Keywords:
+  - 'Parking Lot'
+  - 'URA carpark'
+  - 'car park'
+  - 'carpark'
+Publisher:
+  Name: 'Urban Redevelopment Authority'
+  Admin 1:
+    Name: 'Pamela Poh'
+    Department: 'Urban Redevelopment Authority'
+    Email: 'pamela_poh@ura.gov.sg'
+Sources:
+  - 'Urban Redevelopment Authority'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Quarterly'
+Last Updated: '2017-08-08T03:54:19.326325'
+Resources:
+  -
+    Identifier: '49262833-9215-4b82-93a9-181b9829e62e'
+    Title: 'URA Parking Lot (KML)'
+    Url: 'https://geo.data.gov.sg/ura-parking-lot/2017/07/11/kml/ura-parking-lot.zip'
+    Format: 'KML'
+    Last Updated: '2017-07-10T16:00:00'
+  -
+    Identifier: '6baa1ff2-a647-41a0-bb7e-17218964e91e'
+    Title: 'URA Parking Lot (SHP)'
+    Url: 'https://geo.data.gov.sg/ura-parking-lot/2017/07/11/shp/ura-parking-lot.zip'
+    Format: 'SHP'
+    Last Updated: '2017-07-10T16:00:00'

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SG Parking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+    <script
+        src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.4/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet'
+        href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.4/mapbox-gl-geocoder.css'
+        type='text/css' />
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <style type='text/css'>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #carpark-brief {
+            /* display: none; */
+            position: absolute;
+            bottom: 0px;
+            left: 10%;
+            margin: auto auto 40px;
+            right: 10%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #222;
+            background: #fff;
+        }
+
+        #brief-action {
+            float: right;
+        }
+
+        #brief-title {
+            margin-top: 5px;
+        }
+
+        #brief-details {
+            margin: 10px;
+        }
+
+        .navigateBtn {
+            margin: 10px;
+            -moz-box-shadow: inset 0px 1px 0px 0px #bee2f9;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #bee2f9;
+            box-shadow: inset 0px 1px 0px 0px #bee2f9;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #659fd6));
+            background: -moz-linear-gradient(top, #63b8ee 5%, #659fd6 100%);
+            background: -webkit-linear-gradient(top, #63b8ee 5%, #659fd6 100%);
+            background: -o-linear-gradient(top, #63b8ee 5%, #659fd6 100%);
+            background: -ms-linear-gradient(top, #63b8ee 5%, #659fd6 100%);
+            background: linear-gradient(to bottom, #63b8ee 5%, #659fd6 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#659fd6', GradientType=0);
+            background-color: #63b8ee;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #6590c7;
+            display: inline-block;
+            cursor: pointer;
+            color: #edf4fc;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 21px 12px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #7cacde;
+        }
+
+        .navigateBtn:hover {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #659fd6), color-stop(1, #63b8ee));
+            background: -moz-linear-gradient(top, #659fd6 5%, #63b8ee 100%);
+            background: -webkit-linear-gradient(top, #659fd6 5%, #63b8ee 100%);
+            background: -o-linear-gradient(top, #659fd6 5%, #63b8ee 100%);
+            background: -ms-linear-gradient(top, #659fd6 5%, #63b8ee 100%);
+            background: linear-gradient(to bottom, #659fd6 5%, #63b8ee 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#659fd6', endColorstr='#63b8ee', GradientType=0);
+            background-color: #659fd6;
+        }
+
+        .navigateBtn:active {
+            position: relative;
+            top: 1px;
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138694787-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-138694787-1');
+    </script>
+</head>
+
+<body>
+    <div id='map'></div>
+    <div id="carpark-brief" style="display: none;">
+        <div id="brief-action">
+            <a id="brief-action-link" class="navigateBtn">
+                Navigate ↪️
+            </a>
+        </div>
+        <div id="brief-details">
+            <h4 id="brief-title"></h4>
+            <div id="brief-detail-first"></div>
+            <div id="brief-detail-second"></div>
+        </div>
+    </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZnN3OTA2MjgiLCJhIjoiY2pzeDlzcmZ0MHFhNDQzcHBnMWsyOGZyZyJ9.rYKIYBdMTydn21wWYsbGSw';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/navigation-preview-night-v4',
+            center: [103.85571, 1.295653],
+            zoom: 15 // starting zoom
+        });
+        var geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            countries: 'sg'
+        });
+        let searchedMarker;
+        geocoder.on('result', function (ev) {
+            if (searchedMarker) {
+                searchedMarker.remove();
+            }
+            searchedMarker = new mapboxgl.Marker()
+                .setLngLat(ev.result.center)
+                .addTo(map);
+            // Use layer option to avoid getting results from other layers
+            const features = map.queryRenderedFeatures(ev.result.center, { layers: ['points'], });
+            console.log(ev.result.center, features);
+            // if (features.length) {
+            //     // map.flyTo({center: features[0].geometry.coordinates});
+            //     document.getElementById("brief-title").innerText = features[0].properties.car_park_no;
+            //     document.getElementById("brief-detail-first").innerText = parkingPriceText(features[0].properties);
+            //     document.getElementById("carpark-brief").style.display = "block";
+            //     document.getElementById("brief-action-link").href = 'https://www.waze.com/ul?ll=' + features[0].geometry.coordinates[1] + '%2C' + features[0].geometry.coordinates[0];
+            // } else {
+            //     document.getElementById("carpark-brief").style.display = "none";
+            // }
+        });
+
+        map.addControl(geocoder);
+        map.addControl(new mapboxgl.NavigationControl());
+        // Add geolocate control to the map.
+        map.addControl(new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: false
+            },
+            trackUserLocation: true
+        }));
+        const parkingPriceText = (properties) => {
+            if (properties.ppName) {
+                return parkingPriceTextURA(properties);
+            }
+            const centralCarparks = [
+                'HLM', 'KAB', 'KAM', 'KAS',
+                'PRM', 'SLS', 'SR1', 'SR2',
+                'TPM', 'UCS'
+            ];
+            const normal = properties.car_park_no && centralCarparks.includes(properties.car_park_no) ? '$2.40/hr (7am-5pm, Mon-Sat), $1.20/hr the rest' : "$1.20/hr";
+            const freeParking = "Free: " + properties.free_parking || 'no';
+            return [normal, freeParking].join(', ');
+        };
+
+        const parkingPriceTextURA = (properties) => (
+            JSON.parse(properties.schedules).reduce(
+                (text, schedule) => `${text}${schedule.vehCat}: ${parkingPriceTextURASchedule(schedule)}\n`, ''
+            )
+        )
+
+        const parkingPriceTextURASchedule = (properties) => {
+            const { weekdayRate, satdayRate, sunPHRate, sunPHMin, satdayMin, weekdayMin,
+                startTime, endTime } = properties;
+            const dayOfToday = new Date().getDay();
+            const timeRange = `${startTime} - ${endTime}`;
+            switch (dayOfToday) {
+                case 0:
+                    return `${timeRange}: ${sunPHRate}/${sunPHMin}`;
+                    break;
+                case 6:
+                    return `${timeRange}: ${satdayRate}/${satdayMin}`;
+                    break;
+                default:
+                    return `${timeRange}: ${weekdayRate}/${weekdayMin}`;
+            }
+        }
+        map.on('click', function (e) {
+            const features = map.queryRenderedFeatures(e.point, { layers: ['points'], radius: 10, includeGeometry: true });
+            console.log(e.point, features);
+            if (features.length) {
+                document.getElementById("brief-title").innerText = features[0].properties.car_park_no ||
+                    features[0].properties.ppName ||
+                    features[0].properties.CarPark;
+                document.getElementById("brief-detail-first").innerText = parkingPriceText(features[0].properties);
+                document.getElementById("carpark-brief").style.display = "block";
+                document.getElementById("brief-action-link").href = 'https://www.waze.com/ul?ll=' + features[0].geometry.coordinates[1] + '%2C' + features[0].geometry.coordinates[0];
+            } else {
+                document.getElementById("carpark-brief").style.display = "none";
+            }
+        });
+
+        map.on('load', function () {
+            map.addSource('carparks', { type: 'geojson', data: '/carparks.json' });
+            map.addLayer({
+                "id": "points",
+                "type": "symbol",
+                "source": 'carparks',
+                "layout": {
+                    "icon-image": "car-11",
+                    "icon-size": 3,
+                    // "text-field": "{car_park_no}",
+                    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                    "text-offset": [0, 0.6],
+                    "text-anchor": "top"
+                },
+                "filter": ["any", ["==", "free_parking", "NO"], ["!has", "free_parking"]],
+            });
+            map.addLayer({
+                "id": "free-points",
+                "type": "symbol",
+                "source": 'carparks',
+                "layout": {
+                    "icon-image": "star-11",
+                    "icon-size": 3,
+                    // "text-field": "{car_park_no}",
+                    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                    "text-offset": [0, 0.6],
+                    "text-anchor": "top"
+                },
+                "filter": ["all", ["!=", "free_parking", "NO"], ["has", "free_parking"]],
+            });
+        });
+    </script>
+</body>
+
+</html>

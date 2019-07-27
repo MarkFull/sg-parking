@@ -1,0 +1,30 @@
+# Metadata for Capacity of URA Parking Places
+---
+Identifier: '84e7dcf3-d1df-4870-be50-76cb29b644bc'
+Name: 'capacity-of-ura-parking-places'
+Title: 'Capacity of URA Parking Places'
+Description: 'Ura parking places and their capacity'
+Topics:
+  - 'Infrastructure'
+Keywords:
+  - 'URA carpark'
+  - 'capacity'
+  - 'parking lot'
+Publisher:
+  Name: 'Urban Redevelopment Authority'
+  Admin 1:
+    Name: 'Pamela Poh'
+    Department: 'URBAN REDEVELOPMENT AUTHORITY'
+    Email: 'pamela_poh@ura.gov.sg'
+Sources:
+  - 'Urban Redevelopment Authority'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Ad-hoc'
+Last Updated: '2018-11-07T11:16:46.530189'
+Resources:
+  -
+    Identifier: 'eb378f6e-dc22-44bd-af9b-f753d4fe1981'
+    Title: 'Capacity of URA Parking Places (KML)'
+    Url: 'https://geo.data.gov.sg/ura-parking-capacity-pt/2017/05/18/kml/ura-parking-capacity-pt.kml'
+    Format: 'KML'
+    Last Updated: '2017-05-17T16:00:00'
