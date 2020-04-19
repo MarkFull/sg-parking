@@ -101302,7 +101302,7 @@
       "properties": {
         "name": "East Coast C2",
         "rate": "$0.6 / 30 mins",
-        "free_parking": null,
+        "free_parking": "NO",
         "coordinates": "1.301659, 103.912414",
         "source": "custom"
       }
@@ -101319,7 +101319,7 @@
       "properties": {
         "name": "East Coast Park Carpark C3",
         "rate": "$0.6 / 30 mins",
-        "free_parking": null,
+        "free_parking": "NO",
         "coordinates": "1.302269, 103.914513",
         "source": "custom"
       }
@@ -101336,7 +101336,7 @@
       "properties": {
         "name": "East Coast Carpark C4",
         "rate": "$0.6 / 30 mins",
-        "free_parking": null,
+        "free_parking": "NO",
         "coordinates": "1.303138, 103.917670",
         "source": "custom"
       }
