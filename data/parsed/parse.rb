@@ -4,6 +4,7 @@
 require 'json'
 require 'svy21'
 require 'csv'
+require 'net/http'
 
 payload = JSON.parse(File.read('data/raw/hdb.json'))
 results = payload['records'].map do |record|
@@ -37,7 +38,7 @@ results += ura_payload['Result'].map do |record|
         lat, lng = SVY21.svy21_to_lat_lon(*geometry['coordinates'].split(',').reverse().map(&:to_f))
         [lng, lat]
     end
-    record.merge1({
+    record.merge!({
         source: 'URA'
     })
     { type: 'Feature', geometry: { type: "LineString", coordinates: coordinates }, properties: record }
@@ -73,7 +74,53 @@ lta_payload.each do |record|
     results << { type: 'Feature', geometry: { type: "Point", coordinates: [lng, lat] }, properties: record.to_h }
 end
 
-puts JSON.generate({ type: 'FeatureCollection', features: results });
+# deduplicate URA
+carparkSchedulesByPpCode = {}
+
+results = results.select do |feature|
+    ppCode = feature["properties"]["ppCode"]
+    unless ppCode.nil?
+        unless carparkSchedulesByPpCode[ppCode].nil?
+            carparkSchedulesByPpCode[ppCode] << feature["properties"]
+            false
+        else
+            feature["properties"] = {
+                schedules: [feature["properties"]],
+                geometries: feature["properties"]["geometries"],
+                ppName: feature["properties"]["ppName"],
+                ppCode: feature["properties"]["ppCode"],
+                parkingSystem: feature["properties"]["parkingSystem"],
+            }
+            carparkSchedulesByPpCode[ppCode] = feature["properties"][:schedules]
+            true
+        end
+    else
+        true
+    end
+end;
+
+# add free parking
+results.each do |record|
+    if (record.properties.free_parking) {
+        return;
+    }
+    if (WeekDays_Rate_1 === "Free daily") {
+        record.properties.free_parking = "daily"
+    } elsif (new RegExp("free", "i").test(WeekDays_Rate_1)) {
+        record.properties.free_parking = "partially"
+    }
+    end
+end
+
+custom_rows = CSV.read("data/raw/custom.csv", headers: true)
+custom_rows.each do |row|
+    lat = row["coordinates"].split(',')[0].to_f
+    lng = row["coordinates"].split(',')[1].to_f
+    row["source"] = "custom"
+    results << { type: 'Feature', geometry: { type: "Point", coordinates: [lng, lat] }, properties: row.to_h }
+end
+
+puts JSON.pretty_generate({ type: 'FeatureCollection', features: results });
 
 # require "google/cloud/firestore"
 
