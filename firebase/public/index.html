@@ -171,6 +171,12 @@
             if (properties.ppName) {
                 return parkingPriceTextURA(properties);
             }
+            if (properties.WeekDays_Rate_1) {
+                return parkingPriceTextLTA(properties);
+            }
+            if (properties.source === "custom") {
+                return properties.rate;
+            }
             const centralCarparks = [
                 'HLM', 'KAB', 'KAM', 'KAS',
                 'PRM', 'SLS', 'SR1', 'SR2',
@@ -186,6 +192,15 @@
                 (text, schedule) => `${text}${schedule.vehCat}: ${parkingPriceTextURASchedule(schedule)}\n`, ''
             )
         )
+
+        const parkingPriceTextLTA = properties => {
+            const WeekDays_Rate = `${properties.WeekDays_Rate_1}${properties.WeekDays_Rate_2 === '-' ? '' : '\n' + properties.WeekDays_Rate_2}`;
+            return properties.Saturday_Rate === '-' && properties.Sunday_PublicHoliday_Rate === '-' ?
+                WeekDays_Rate :
+                `Weekday: ${WeekDays_Rate}
+                Saturday: ${properties.Saturday_Rate}
+                Sunday / Public Holiday: ${properties.Sunday_PublicHoliday_Rate}`
+        }
 
         const parkingPriceTextURASchedule = (properties) => {
             const { weekdayRate, satdayRate, sunPHRate, sunPHMin, satdayMin, weekdayMin,
@@ -209,7 +224,8 @@
             if (features.length) {
                 document.getElementById("brief-title").innerText = features[0].properties.car_park_no ||
                     features[0].properties.ppName ||
-                    features[0].properties.CarPark;
+                    features[0].properties.CarPark ||
+                    features[0].properties.name;
                 document.getElementById("brief-detail-first").innerText = parkingPriceText(features[0].properties);
                 document.getElementById("carpark-brief").style.display = "block";
                 document.getElementById("brief-action-link").href = 'https://www.waze.com/ul?ll=' + features[0].geometry.coordinates[1] + '%2C' + features[0].geometry.coordinates[0];
@@ -227,6 +243,7 @@
                 "layout": {
                     "icon-image": "car-11",
                     "icon-size": 3,
+                    "icon-allow-overlap": true,
                     // "text-field": "{car_park_no}",
                     "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
                     "text-offset": [0, 0.6],
@@ -241,6 +258,7 @@
                 "layout": {
                     "icon-image": "star-11",
                     "icon-size": 3,
+                    "icon-allow-overlap": true,
                     // "text-field": "{car_park_no}",
                     "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
                     "text-offset": [0, 0.6],
