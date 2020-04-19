@@ -101085,6 +101085,737 @@
         "lat": "1.39695775",
         "lon": "103.746612166001"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.793986,
+          1.338118
+        ]
+      },
+      "properties": {
+        "name": "The Grandstand",
+        "rate": "Free daily",
+        "free_parking": "daily",
+        "coordinates": "1.338118,103.793986",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.76574,
+          1.293355
+        ]
+      },
+      "properties": {
+        "name": "West Coast Park Car Park 2",
+        "rate": "Free daily",
+        "free_parking": "daily",
+        "coordinates": "1.293355, 103.765740",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.763029,
+          1.298943
+        ]
+      },
+      "properties": {
+        "name": "West Coast Park Car Park 3",
+        "rate": "Free daily",
+        "free_parking": "daily",
+        "coordinates": "1.298943, 103.763029",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.810191,
+          1.303665
+        ]
+      },
+      "properties": {
+        "name": "Dempsey Hill",
+        "rate": "Free daily",
+        "free_parking": "daily",
+        "coordinates": "1.303665, 103.810191",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.877226,
+          1.302091
+        ]
+      },
+      "properties": {
+        "name": "Leisure Park Kallang",
+        "rate": "MON-FRI before 5/6 PM\nFree for 1st 30min, $0.70 for next subsequent 30min from 8.15am to 6pm\nMON-FRI after 5/6 PM\n$1.80/entry from 6pm to 3am the following day\nSAT\n$0.70 for 1st hr, $0.40 for next subsequent 15min from 8.30am to 6pm. $2.30/entry from 6pm to 3am the following day from Fri to Sun\nSUN / PUBLIC HOLIDAYS\n$0.70 for 1st hr, $0.40 for next subsequent 15min from 8.30am to 6pm. $2.30/entry from 6pm to 3am the following day\nREMARKS\n$20.00 additional surcharge for exiting between 3.00am to 8.15am",
+        "free_parking": "Weekday",
+        "coordinates": "1.302091, 103.877226",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.752302,
+          1.328227
+        ]
+      },
+      "properties": {
+        "name": "TradeHub 21",
+        "rate": "MON-FRI\n$1.20/hr from 7am to 7pm\nFree Parking from 7pm to 12midnight\nSAT\nFree Parking\nSUN / PUBLIC HOLIDAYS\nFree Parking",
+        "free_parking": "night and weekend",
+        "coordinates": "1.328227, 103.752302",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.900633,
+          1.29795
+        ]
+      },
+      "properties": {
+        "name": "Big Splash",
+        "rate": "MON-FRI before 5/6 PM\nFree parking from 12midnight to 5pm\n\nMON-FRI after 5/6 PM\n$1.50/hr from 5pm to 12midnight the following day\n\nSAT\n$1.50/hr from 5am to 5am the following day\n\nSUN / PUBLIC HOLIDAYS\n$1.50/hr from 5am to 5am the following day\n\nREMARKS\n30min grace period",
+        "free_parking": "Weekday",
+        "coordinates": "1.297950, 103.900633",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.725396,
+          1.331517
+        ]
+      },
+      "properties": {
+        "name": "Jurong Lake Gardens South",
+        "rate": "Monday to Friday\n8.30am to 12.00pm\n2.00pm to 10.30pm\n10.30pm to 6.30am\nSaturday & Sunday\n8.30am to 10.30pm\n10.30pm to 6.30am\n\n$0.60 per 30 minutes\n\nMonday to Sunday\n5.00am to 8.30am\nMonday to Friday\n12.00pm to 2.00pm\n\nFree",
+        "free_parking": "nparks",
+        "coordinates": "1.331517, 103.725396",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.724676,
+          1.338745
+        ]
+      },
+      "properties": {
+        "name": "Jurong Lake Gardens North",
+        "rate": "Monday to Friday\n8.30am to 12.00pm\n2.00pm to 10.30pm\n10.30pm to 6.30am\nSaturday & Sunday\n8.30am to 10.30pm\n10.30pm to 6.30am\n\n$0.60 per 30 minutes\n\nMonday to Sunday\n5.00am to 8.30am\nMonday to Friday\n12.00pm to 2.00pm\n\nFree",
+        "free_parking": "nparks",
+        "coordinates": "1.338745, 103.724676",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.81749,
+          1.27378
+        ]
+      },
+      "properties": {
+        "name": "Mount Faber Park",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.27378, 103.81749",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.893131,
+          1.295351
+        ]
+      },
+      "properties": {
+        "name": "East Coast Carpark B1",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.295351, 103.893131",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.902743,
+          1.298737
+        ]
+      },
+      "properties": {
+        "name": "East Coast B2 Car Park",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.298737, 103.902743",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.912414,
+          1.301659
+        ]
+      },
+      "properties": {
+        "name": "East Coast C2",
+        "rate": "$0.6 / 30 mins",
+        "free_parking": null,
+        "coordinates": "1.301659, 103.912414",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.914513,
+          1.302269
+        ]
+      },
+      "properties": {
+        "name": "East Coast Park Carpark C3",
+        "rate": "$0.6 / 30 mins",
+        "free_parking": null,
+        "coordinates": "1.302269, 103.914513",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.91767,
+          1.303138
+        ]
+      },
+      "properties": {
+        "name": "East Coast Carpark C4",
+        "rate": "$0.6 / 30 mins",
+        "free_parking": null,
+        "coordinates": "1.303138, 103.917670",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.919955,
+          1.303814
+        ]
+      },
+      "properties": {
+        "name": "East Coast Carpark D1",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.303814, 103.919955",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.923282,
+          1.304712
+        ]
+      },
+      "properties": {
+        "name": "Carpark D3",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.304712, 103.923282",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.926323,
+          1.30563
+        ]
+      },
+      "properties": {
+        "name": "Car Park D5",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.305630, 103.926323",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.937729,
+          1.309515
+        ]
+      },
+      "properties": {
+        "name": "East Coast Park Car Park F1",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.309515, 103.937729",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.944898,
+          1.31137
+        ]
+      },
+      "properties": {
+        "name": "East Coast Park Carpark F2",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.311370, 103.944898",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.949441,
+          1.311006
+        ]
+      },
+      "properties": {
+        "name": "East Coast Park Carpark F3",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.311006, 103.949441",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.960445,
+          1.315323
+        ]
+      },
+      "properties": {
+        "name": "East Coast Park Car Park G",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.315323, 103.960445",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.708357,
+          1.339685
+        ]
+      },
+      "properties": {
+        "name": "Jurong Central Park",
+        "rate": "1hr free",
+        "free_parking": "nparks",
+        "coordinates": "1.339685, 103.708357",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.79073,
+          1.2835
+        ]
+      },
+      "properties": {
+        "name": "Kent Ridge Park Main Carpark",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.2835, 103.79073",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.7938,
+          1.2801
+        ]
+      },
+      "properties": {
+        "name": "Kent Ridge Park Car Park C",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.2801, 103.7938",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.79441,
+          1.2785
+        ]
+      },
+      "properties": {
+        "name": "Kent Ridge Car Park D",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.2785, 103.79441",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.78888,
+          1.28581
+        ]
+      },
+      "properties": {
+        "name": "Kent Ridge Car Park A",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.28581, 103.78888",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.73609,
+          1.43792
+        ]
+      },
+      "properties": {
+        "name": "Kranji Park Carpark B",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.43792, 103.73609",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.74263,
+          1.43897
+        ]
+      },
+      "properties": {
+        "name": "Kranji Park Carpark A",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.43897, 103.74263",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.80469,
+          1.26413
+        ]
+      },
+      "properties": {
+        "name": "Labrador Car Park B & C",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.26413, 103.80469",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.83413,
+          1.41139
+        ]
+      },
+      "properties": {
+        "name": "Lower Seletar Reservoir Park",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.41139, 103.83413",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.94704,
+          1.38222
+        ]
+      },
+      "properties": {
+        "name": "Pasir Ris Park Carpark D",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.38222, 103.94704",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.9426,
+          1.38435
+        ]
+      },
+      "properties": {
+        "name": "Pasir Ris Carpark F",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.38435, 103.9426",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.90446,
+          1.41082
+        ]
+      },
+      "properties": {
+        "name": "Punggol Waterway Car Park B",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.41082, 103.90446",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.90267,
+          1.41044
+        ]
+      },
+      "properties": {
+        "name": "Punggol Waterway Car Park A",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.41044, 103.90267",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.83632,
+          1.46038
+        ]
+      },
+      "properties": {
+        "name": "Sembawang Park",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.46038, 103.83632",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.88388,
+          1.3982
+        ]
+      },
+      "properties": {
+        "name": "Sengkang Riverside Park",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.3982, 103.88388",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.80327,
+          1.39687
+        ]
+      },
+      "properties": {
+        "name": "Upper Seletar Reservoir Park",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.39687, 103.80327",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.81328,
+          1.27887
+        ]
+      },
+      "properties": {
+        "name": "Telok Blangah Hill Park",
+        "rate": "Free",
+        "free_parking": "nparks",
+        "coordinates": "1.27887, 103.81328",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.88976,
+          1.33438
+        ]
+      },
+      "properties": {
+        "name": "BreadTalk IHQ",
+        "rate": "Monday to Friday (06:00am - 11:59pm) \n1st Hour FREE\n2nd Hour $1.50\nSubsequent Hour(s) $2.50/hr\n\nMonday to Friday (12:00 midnight - 5:59am the following day) $2.50/hr (Capped at $12.50)\n\nSaturday, Sunday & Public Holiday (06:00am - 11:59pm) \n1st Hour FREE\nSubsequent Hour(s) or Part Thereof\n$2.00/entry flat fee",
+        "free_parking": "limited",
+        "coordinates": "1.33438, 103.88976",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.83391,
+          1.359
+        ]
+      },
+      "properties": {
+        "name": "Midview City",
+        "rate": "Mon-Fri\nBefore 7pm $1/hr from 7am – 7pm\nAfter 7pm \nFree parking from 7pm to 12midnight, $6.00/entry from 12midnight to 7am the following day\nSat \nFree parking from 7am to 12midnight, overnight charge from 12midnight to 7am the following day\nSun / Public Holidays \nFree parking from 7am to 12midnight, overnight charge from 12midnight to 7am the following day",
+        "free_parking": "limited",
+        "coordinates": "1.359, 103.83391",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.76796,
+          1.35821
+        ]
+      },
+      "properties": {
+        "name": "The Rail Mall",
+        "rate": "Free Parking along the road directly opposite the The Rail Mall shops",
+        "free_parking": "daily",
+        "coordinates": "1.35821, 103.76796",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.8016,
+          1.27379
+        ]
+      },
+      "properties": {
+        "name": "Alexandra Retail Centre",
+        "rate": "Monday to Friday\n7:00am to 6:30pm\n$2.20 per hour or part thereof \n6:30pm to 11:00pm\nFree parking \n\nSaturday / Sunday / Public Holidays\n 7:00am to 11:00pm\nFree parking \n\nDaily Overnight Parking\n11:00pm to 7:00am\n$2.40 per hour or part thereof",
+        "free_parking": "limited",
+        "coordinates": "1.27379, 103.8016",
+        "source": "custom"
+      }
     }
   ]
 }

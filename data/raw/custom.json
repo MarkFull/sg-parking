@@ -1,0 +1,37 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    103.793986,
+                    1.338118
+                ]
+            },
+            "properties": {
+                "CarPark": "The Grandstand",
+                "free_parking": "daily",
+                "rate": "Free daily",
+                "source": "custom"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    103.763029,
+                    1.298943
+                ]
+            },
+            "properties": {
+                "CarPark": "West Coast Park Car Park 3",
+                "free_parking": "daily",
+                "rate": "Free daily",
+                "source": "custom"
+            }
+        },
+    ]
+}
