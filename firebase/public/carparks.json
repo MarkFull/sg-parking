@@ -101763,7 +101763,58 @@
         "rate": "Monday to Friday (06:00am - 11:59pm) \n1st Hour FREE\n2nd Hour $1.50\nSubsequent Hour(s) $2.50/hr\n\nMonday to Friday (12:00 midnight - 5:59am the following day) $2.50/hr (Capped at $12.50)\n\nSaturday, Sunday & Public Holiday (06:00am - 11:59pm) \n1st Hour FREE\nSubsequent Hour(s) or Part Thereof\n$2.00/entry flat fee",
         "free_parking": "limited",
         "coordinates": "1.33438, 103.88976",
-        "source": "custom"
+        "source": "custom",
+        "rateRange": [
+          {
+            "dayFrom": 1,
+            "dayTo": 5,
+            "timeFrom": "6:00am",
+            "timeTo": "0:00am",
+            "rate": {
+              "hr0": {
+                "amount": 0,
+                "timeslot": "hour"
+              },
+              "hr1": {
+                "amount": 1.5,
+                "timeslot": "hour"
+              },
+              "perHr": {
+                "amount": 2.5,
+                "timeslot": "hour"
+              }
+            }
+          },
+          {
+            "dayFrom": 1,
+            "dayTo": 5,
+            "timeFrom": "0:00am",
+            "timeTo": "6:00am",
+            "rate": {
+              "perHr": {
+                "amount": 2.5,
+                "timeslot": "hour",
+                "cap": 12.5
+              }
+            }
+          },
+          {
+            "days": [
+              6,
+              7,
+              "PH"
+            ],
+            "timeFrom": "0:00am",
+            "timeTo": "6:00am",
+            "rate": {
+              "perHr": {
+                "amount": 2.5,
+                "timeslot": "hour",
+                "cap": 12.5
+              }
+            }
+          }
+        ]
       }
     },
     {
@@ -101814,6 +101865,23 @@
         "rate": "Monday to Friday\n7:00am to 6:30pm\n$2.20 per hour or part thereof \n6:30pm to 11:00pm\nFree parking \n\nSaturday / Sunday / Public Holidays\n 7:00am to 11:00pm\nFree parking \n\nDaily Overnight Parking\n11:00pm to 7:00am\n$2.40 per hour or part thereof",
         "free_parking": "limited",
         "coordinates": "1.27379, 103.8016",
+        "source": "custom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.959757,
+          1.354786
+        ]
+      },
+      "properties": {
+        "name": "Tampines Mart",
+        "rate": "Free first 30mins. $0.70/30min Daily",
+        "free_parking": "limited",
+        "coordinates": "1.354786, 103.959757",
         "source": "custom"
       }
     }
