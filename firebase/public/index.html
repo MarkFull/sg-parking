@@ -147,19 +147,39 @@
             searchedMarker = new mapboxgl.Marker()
                 .setLngLat(ev.result.center)
                 .addTo(map);
-            // Use layer option to avoid getting results from other layers
-            const features = map.queryRenderedFeatures(ev.result.center, { layers: ['points'], });
-            console.log(ev.result.center, features);
-            // if (features.length) {
-            //     // map.flyTo({center: features[0].geometry.coordinates});
-            //     document.getElementById("brief-title").innerText = features[0].properties.car_park_no;
-            //     document.getElementById("brief-detail-first").innerText = parkingPriceText(features[0].properties);
-            //     document.getElementById("carpark-brief").style.display = "block";
-            //     document.getElementById("brief-action-link").href = 'https://www.waze.com/ul?ll=' + features[0].geometry.coordinates[1] + '%2C' + features[0].geometry.coordinates[0];
-            // } else {
-            //     document.getElementById("carpark-brief").style.display = "none";
-            // }
         });
+
+        const pointToFeatureDistance = (point, feature) => {
+            try {
+                if (feature.geometry.type === "LineString") {
+                    return turf.pointToLineDistance(point, feature)
+                }
+                return turf.distance(point, feature);
+            } catch (error) {
+                console.error('Error calculating point to feature distance', error);
+            }
+        }
+
+        map.on('moveend', () => {
+            // Use layer option to avoid getting results from other layers
+            const features = map.queryRenderedFeatures({ layers: ['points', 'free-points'], radius: 500, includeGeometry: true });
+            const centerCoordinates = map.getBounds().getCenter();
+            const center = turf.point([centerCoordinates.lng, centerCoordinates.lat]);
+            // TODO: turf render
+            console.log(features);
+            features.sort((first, second) => {
+                return pointToFeatureDistance(center, first) - pointToFeatureDistance(center, second);
+            })
+            if (features.length) {
+                // map.flyTo({center: features[0].geometry.coordinates});
+                document.getElementById("brief-title").innerText = features[0].properties.car_park_no;
+                document.getElementById("brief-detail-first").innerText = parkingPriceText(features[0].properties);
+                document.getElementById("carpark-brief").style.display = "block";
+                document.getElementById("brief-action-link").href = 'https://www.waze.com/ul?ll=' + features[0].geometry.coordinates[1] + '%2C' + features[0].geometry.coordinates[0];
+            } else {
+                document.getElementById("carpark-brief").style.display = "none";
+            }
+        })
 
         map.addControl(geocoder);
         map.addControl(new mapboxgl.NavigationControl());
