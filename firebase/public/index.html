@@ -28,30 +28,24 @@
             width: 100%;
         }
 
-        #search-results-horizontal {
-            display: none;
-            position: absolute;
-            bottom: 0px;
-            left: 0%;
-            right: 0%;
-        }
-
+        #search-results-horizontal,
         #single-carpark {
             display: none;
             position: absolute;
-            bottom: 0px;
+            bottom: 40px;
             left: 0%;
             right: 0%;
         }
 
         .carpark-brief {
-            margin: auto 10% 40px;
+            margin: auto 10%;
             padding: 10px;
             border: none;
             border-radius: 3px;
             font-size: 12px;
             color: #222;
             background: #fff;
+            overflow: auto;
         }
 
         .brief-action {
@@ -117,6 +111,7 @@
             position: absolute;
             top: 10px;
             left: 10px;
+            font-size: 30px;
         }
     </style>
 
@@ -147,7 +142,18 @@
     </div>
     <div id="search-results-horizontal"></div>
     <ul id="search-results" class="list-group"></ul>
-    <button id="toggle-search-results-view" class="btn btn-info">List</button>
+    <button id="toggle-search-results-view" class="btn btn-info">
+        <svg id="bi-list-ul" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+        </svg>
+        <svg id="bi-map" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" style="display: none;"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M15.817.613A.5.5 0 0 1 16 1v13a.5.5 0 0 1-.402.49l-5 1a.502.502 0 0 1-.196 0L5.5 14.51l-4.902.98A.5.5 0 0 1 0 15V2a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0l4.902.98 4.902-.98a.5.5 0 0 1 .415.103zM10 2.41l-4-.8v11.98l4 .8V2.41zm1 11.98l4-.8V1.61l-4 .8v11.98zm-6-.8V1.61l-4 .8v11.98l4-.8z" />
+        </svg>
+    </button>
 
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
     <script
@@ -318,7 +324,8 @@
 
         const toggleSearchResultsVerticalView = () => {
             const showingVertical = document.getElementById("search-results").style.display === 'block';
-            document.getElementById("toggle-search-results-view").innerText = showingVertical ? 'List' : 'Map';
+            document.getElementById(showingVertical ? 'bi-list-ul' : 'bi-map').style.display = "inline";
+            document.getElementById(showingVertical ? 'bi-map' : 'bi-list-ul').style.display = "none";
             document.getElementById("search-results").style.display = showingVertical ? 'none' : 'block';
         }
 
