@@ -2,10 +2,10 @@
 # curl https://data.gov.sg/dataset/84e7dcf3-d1df-4870-be50-76cb29b644bc/download -L -o ura-capacity.zip && open ura-capacity.zip
 curl -X GET \
   https://www.ura.gov.sg/uraDataService/insertNewToken.action \
-  -H 'AccessKey: c487282e-9e0d-4bcb-87c8-e47e9445d9f0' \
+  -H 'AccessKey: ' \
   -H 'cache-control: no-cache'
 curl -X GET \
   'https://www.ura.gov.sg/uraDataService/invokeUraDS?service=Car_Park_Details' \
-  -H 'AccessKey: c487282e-9e0d-4bcb-87c8-e47e9445d9f0' \
-  -H 'Token: cbtcJA7k3R8veB658cNR0x7b4c-@46+StXRSj39+U7e87vj4bXPdeXdKM9RD2Bux7eF589Fd2JGu4S7cbfuJJfTw5T44Q5uYUuPE' \
+  -H 'AccessKey: ' \
+  -H 'Token: token-here' \
   -o ura.json
